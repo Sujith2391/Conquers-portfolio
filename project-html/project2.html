@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Gotham Pulse - Batman's Portfolio</title>
+    <meta name="description" content="Case study for Project Gotham Pulse: A real-time urban intelligence dashboard.">
+    
+    <link rel="stylesheet" href="../style.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    
+    <link rel="icon" type="image/png" href="../images/favicon.png">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="site-title"><a href="../index.html">BATMAN</a></h1>
+            <nav class="main-nav">
+                <ul>
+                    <!-- <li><a href="../index.html#work">Work</a></li> -->
+                    <li><a href="../index.html#about">About</a></li>
+                    <li><a href="../index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark and light mode">
+                ☀️
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="project-case-study">
+            <div class="container">
+                <a href="../index.html#work" class="back-to-work-link">← Back to Work</a>
+                
+                <h1 class="project-title">Project Gotham Pulse: Real-time Urban Intelligence Dashboard</h1>
+                <p class="project-overview">[Your Role, e.g., UI/UX Designer, Data Visualization Specialist] | June - August 2024</p>
+                
+                <img src="../images/project2/bat.jpeg" 
+                     alt="Gotham Pulse Project Hero Image: Dark, High-tech City Monitoring Interface" 
+                     class="project-hero-image"
+                     loading="lazy" 
+                     data-lightbox-gallery="gotham-pulse-project" 
+                     >
+                <p class="image-caption">The core dashboard interface, reflecting Gotham's vigilant oversight.</p>
+
+
+                <div class="project-section-content">
+                    <h2>1. Overview & The Challenge</h2>
+                    <p>Modern cities are complex ecosystems generating vast amounts of data, yet integrating and acting upon this information in real-time remains a significant hurdle for effective urban management and public safety. Project Gotham Pulse was conceived to address this challenge: creating a unified, real-time intelligence dashboard that transforms raw urban data into actionable insights for critical decision-makers.</p>
+                    <p>The primary challenge involved designing an interface capable of handling high-volume, diverse data streams (e.g., crime statistics, traffic, environmental sensors, public service requests) within a secure, intuitive, and visually impactful system, reflecting the high-stakes environment of a major metropolitan area.</p>
+
+                    <h2>2. User & Context Research</h2>
+                    <p>Our research focused on understanding the needs of key urban stakeholders, including emergency services, city planning departments, and public utility managers.</p>
+                    <ul>
+                        <li><strong>Stakeholder Interviews:</strong> Conducted sessions with [number] city department heads to identify critical information gaps, decision-making bottlenecks, and the types of data most valuable for rapid response.</li>
+                        <li><strong>Workflow Analysis:</strong> Mapped current incident response and urban planning workflows to pinpoint areas where real-time data integration could yield significant efficiencies.</li>
+                        <li><strong>Environmental Scan:</strong> Explored existing smart city platforms and urban data visualization tools to learn from their successes and limitations, particularly regarding scalability and data security.</li>
+                    </ul>
+                    <p>A recurring theme was the need for a "single pane of glass" view, eliminating data silos and enabling proactive interventions rather than reactive responses. The project's visual identity drew inspiration from the iconic vigilance and high-tech investigative tools associated with Gotham's protector, emphasizing precision, security, and strategic insight.</p>
+
+                    <h2>3. Design Process & Solutions</h2>
+                    <p>Our design process for Gotham Pulse prioritized clarity under pressure, data integrity, and a visually immersive experience that supported rapid analysis.</p>
+
+                    <h3>Information Architecture & Data Modeling</h3>
+                    <p>We structured the dashboard around critical domains: Public Safety, Infrastructure, and Emergency Response. Data points were categorized and layered on an interactive map, becoming the central hub for intelligence.</p>
+                    <img src="../images/project2/dark.jpeg" 
+                         alt="Information Architecture for Gotham Pulse interactive map" 
+                         class="project-image-full" 
+                         loading="lazy" 
+                         data-lightbox-gallery="gotham-pulse-project" 
+                         >
+                    <p class="image-caption">Information architecture emphasizing data layering on an interactive map interface.</p>
+
+                    <h3>UI/UX Design: Dark, Detailed, and Decisive</h3>
+                    <p>The aesthetic for Gotham Pulse embraced a sophisticated dark mode, emphasizing high-contrast data visualizations and a sleek, technical feel:</p>
+                    <ul>
+                        <li><strong>Color Palette:</strong> Predominantly deep charcoals and blacks for backgrounds, accented with vibrant blues (for primary data/action), sharp reds (for critical alerts), and subtle greens (for stability/safety indicators).</li>
+                        <li><strong>Typography:</strong> Utilized clean, legible sans-serif fonts with varied weights to establish clear data hierarchy, even in low-light conditions.</li>
+                        <li><strong>Data Visualization:</strong> Custom-designed charts, graphs, and heatmaps were developed to convey complex data trends at a glance, allowing for drill-down capabilities. Visualizing anomalies and trends was key.</li>
+                    </ul>
+
+                    <h4>Interactive City Map: The Core Command Center</h4>
+                    <p>The interactive map is the heart of Gotham Pulse, providing real-time overlays of incidents, resource deployment, and critical infrastructure status. Filters allow users to focus on specific data sets.</p>
+                    <img src="../images/project2/gold.jpeg" 
+                         alt="Gotham Pulse Dashboard with Interactive City Map" 
+                         class="project-image-full" 
+                         loading="lazy" 
+                         data-lightbox-gallery="gotham-pulse-project" 
+                         >
+                    <p class="image-caption">Real-time interactive map displaying urban data overlays.</p>
+
+                    <h4>Incident & Anomaly Detection Module</h4>
+                    <p>A dedicated module highlights emerging patterns or unusual activities, drawing attention to potential threats or critical system failures using a clear alert system.</p>
+                    <img src="../images/project2/lord.jpeg" 
+                         alt="Gotham Pulse Anomaly Detection Module" 
+                         class="project-image-full" 
+                         loading="lazy" 
+                         data-lightbox-gallery="gotham-pulse-project" 
+                         >
+                    <p class="image-caption">Module for detecting and alerting on urban anomalies and incidents.</p>
+
+                    <h2>4. Outcomes & Learnings</h2>
+                    <p>Project Gotham Pulse resulted in a robust conceptual framework for a data-driven urban intelligence system, prioritizing user needs in high-pressure environments. The design effectively translates complex data into digestible, actionable insights.</p>
+                    <ul>
+                        <li><strong>Enhanced Situational Awareness:</strong> Provided a unified view that significantly improved understanding of unfolding urban events.</li>
+                        <li><strong>Improved Decision Support:</strong> The intuitive visualizations and filtering capabilities enabled quicker, more informed decision-making.</li>
+                        <li><strong>Scalability Considerations:</strong> Learned critical lessons about designing for large-scale data ingestion and real-time processing in a visually accessible manner.</li>
+                    </ul>
+                    <p>This project solidified my expertise in designing for complex data environments and creating impactful UIs that balance aesthetics with critical functionality. Future iterations would explore predictive analytics and AI-driven resource optimization.</p>
+
+                    <div class="project-nav-links">
+                        <a href="../index.html#work" class="btn secondary-btn">Back to All Work</a>
+                        </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; <span id="current-year"></span> Batman. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <button id="back-to-top" class="back-to-top" aria-label="Back to top">↑</button>
+
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <img class="lightbox-content" id="lightbox-img" alt="Lightbox Image">
+        <div class="lightbox-caption" id="lightbox-caption"></div>
+        <a class="lightbox-prev">&#10094;</a>
+        <a class="lightbox-next">&#10095;</a>
+    </div>
+
+    <script src="../script.js"></script>
+</body>
+</html>

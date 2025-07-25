@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sujith's - Portfolio</title>
+    <meta name="description" content="A minimal portfolio showcasing my work in [Your Field].">
+    
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    
+    <link rel="icon" type="image/png" href="images/favicon.png"> 
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="site-title"><a href="#hero">SUJITH</a></h1>
+            <nav class="main-nav">
+                <ul>
+                    <!-- <li><a href="#work">Work</a></li> -->
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark and light mode">
+                ☀️
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="hero-section">
+            <div class="container">
+                <p class="hero-intro fade-in-section">Hi, I'm Sujith!</p>
+                <h2 class="hero-headline fade-in-section">
+                    I design & build beautiful, user-centered
+                    <span id="typewriter-text" class="typewriter-text"></span><span class="cursor">|</span>
+                </h2>
+                <a href="#work" class="btn primary-btn fade-in-section">View My Work</a>
+            </div>
+        </section>
+
+        <section id="work" class="work-section fade-in-section">
+            <div class="container">
+                <h2 class="section-title">Selected Work</h2>
+                <div class="projects-grid">
+                    <article class="project-card fade-in-item">
+                        <img src="images/project1/thumbnail.jpg" alt="Project 1 Title Thumbnail">
+                        <div class="project-content">
+                            <h3>Project COD cooking</h3>
+                            <p>Brief description of Project 1, e.g., "UI/UX Design for an E-commerce Platform."</p>
+                            <a href="project-html/project1.html" class="project-link">View Case Study</a>
+                        </div>
+                    </article>
+
+                    <article class="project-card fade-in-item">
+                        <img src="images/project2/thumbnail1.jpg" alt="Project 2 Title Thumbnail">
+                        <div class="project-content">
+                            <h3>Project Gotham City</h3>
+                            <p>Brief description of Project 2, e.g., "Responsive Web Development for a Startup."</p>
+                            <a href="project-html/project2.html" class="project-link">View Case Study</a>
+                        </div>
+                    </article>
+
+                    <article class="project-card fade-in-item">
+                        <img src="images/project3/thumbnail2.jpg" alt="Project 3 Title Thumbnail">
+                        <div class="project-content">
+                            <h3>Project PirateKing</h3>
+                            <p>Brief description of Project 3, e.g., "Brand Identity & Website for a Local Business."</p>
+                            <a href="./project-html/project3.html" class="project-link">View Case Study</a>
+                        </div>
+                    </article>
+                    </div>
+            </div>
+        </section>
+
+        <section id="about" class="about-section fade-in-section">
+            <div class="container">
+                <h2 class="section-title">About Me</h2>
+                <div class="about-content fade-in-item">
+                    <img src="images/profile.jpg" alt="Your Name Profile Picture" class="profile-img">
+                    <div class="bio-text">
+                        <p>Hello! I'm Sujith, a passionate  e.g., UI/UX Designer, Front-End Developer based in Manipal/India. I specialize in creating clean, intuitive, and user-friendly digital experiences.</p>
+                        <p>My journey in design/development began with a fascination for how people interact with technology. I believe in a user-centered approach, focusing on understanding needs and translating them into elegant and functional solutions.</p>
+                        <p>When I'm not crafting pixels or writing code, you can find me  exploring new coffee shops, hiking, reading sci-fi,watching anime. I'm always eager to learn new things and collaborate on exciting projects. Let's build something great together!</p>
+                        </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section fade-in-section">
+            <div class="container">
+                <h2 class="section-title">Get in Touch</h2>
+                <p class="contact-intro">Have a project in mind, or just want to say hello? Feel free to reach out!</p>
+                <form class="contact-form" action="https://formspree.io/f/xvgqarar" method="POST">
+                <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="6" required></textarea>
+                </div>
+                <button type="submit" class="btn primary-btn">Send Message</button>
+                </form>
+                <div class="social-links">
+                    <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a href="https://github.com/Sujith2391" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; <span id="current-year"></span> SUJITH. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <button id="back-to-top" class="back-to-top" aria-label="Back to top">↑</button>
+
+    <script src="script.js"></script>
+</body>
+</html>

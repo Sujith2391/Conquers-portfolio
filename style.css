@@ -1,0 +1,858 @@
+/* Basic Reset & Box-Sizing */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+    /* FIX for Lightbox Positioning: Ensure html and body span full viewport */
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden; /* Prevent horizontal scrollbars if content overflows */
+}
+
+body {
+    font-family: var(--font-primary);
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-dark); /* Default text color from light mode vars */
+    background-color: var(--background-light); /* Default background from light mode vars */
+    -webkit-font-smoothing: antialiased; /* Better font rendering */
+    text-rendering: optimizeLegibility; /* Better text rendering */
+    /* FIX for Lightbox Positioning: Ensure html and body span full viewport */
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden; /* Prevent horizontal scrollbars if content overflows */
+    margin: 0;
+    padding: 0;
+}
+
+/* Variables for easy theming */
+:root {
+    --font-primary: 'Inter', sans-serif;
+    --font-heading: 'Montserrat', sans-serif;
+
+    /* Light Mode Variables */
+    --background-light: #fdfdfd;
+    --background-medium: #f0f0f0;
+    --text-dark: #333;
+    --text-medium: #666;
+    --text-light: #999;
+    --accent-color: #007bff; /* A clean, modern blue */
+    --accent-color-hover: #0056b3;
+    --border-color: #eee;
+    --shadow-light: rgba(0, 0, 0, 0.05);
+    --shadow-medium: rgba(0, 0, 0, 0.1);
+
+    --spacing-xs: 8px;
+    --spacing-sm: 16px;
+    --spacing-md: 32px;
+    --spacing-lg: 64px;
+    --spacing-xl: 96px;
+
+    /* Dark Mode Variables - UPDATED FOR OPTIMAL CLARITY */
+    --dark-background-light: #1a1a1a; /* Very dark background */
+    --dark-background-medium: #2a2a2a; /* Slightly lighter dark background */
+    --dark-text-dark: #f0f0f0;       /* Primary text color for dark mode (very light) */
+    
+    --dark-text-medium: #E0E0E0; /* Brighter gray for secondary text (e.g., nav, project descriptions) */
+    --dark-text-light: #C0C0C0;  /* Lighter gray for subtle text (e.g., footer) */
+    --dark-border-color: #777777; /* Lighter gray for borders */
+    
+    --dark-shadow-light: rgba(255, 255, 255, 0.05);
+    --dark-shadow-medium: rgba(255, 255, 255, 0.1);
+}
+
+/* Container for consistent content width */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-sm); /* Responsive padding */
+}
+
+/* Typography */
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--text-dark);
+    margin-bottom: var(--spacing-sm);
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.5rem; }
+
+p {
+    margin-bottom: var(--spacing-sm);
+}
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--accent-color-hover);
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    font-family: var(--font-primary);
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    text-align: center;
+}
+
+.primary-btn {
+    background-color: var(--accent-color);
+    color: #fff;
+}
+
+.primary-btn:hover {
+    background-color: var(--accent-color-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px var(--shadow-medium);
+}
+
+.secondary-btn {
+    background-color: transparent;
+    color: var(--accent-color);
+    border: 1px solid var(--accent-color);
+}
+
+.secondary-btn:hover {
+    background-color: var(--accent-color);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px var(--shadow-medium);
+}
+
+/* Header & Navigation */
+.header {
+    background-color: var(--background-light);
+    padding: var(--spacing-sm) 0;
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px var(--shadow-light);
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.site-title {
+    margin: 0;
+}
+
+.site-title a {
+    color: var(--text-dark);
+    font-size: 1.8rem;
+    font-weight: 700;
+    transition: color 0.3s ease;
+}
+
+.site-title a:hover {
+    color: var(--accent-color);
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+.main-nav a {
+    color: var(--text-dark);
+    font-weight: 500;
+    padding: 5px 0;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.main-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent-color);
+    transition: width 0.3s ease;
+}
+
+.main-nav a:hover::after {
+    width: 100%;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-dark); /* Default to light mode icon color */
+    transition: color 0.3s ease;
+    padding: 5px; /* Add some padding for easier clicking */
+    border-radius: 5px;
+}
+
+.theme-toggle:hover {
+    color: var(--accent-color);
+}
+
+/* Section Styling */
+section {
+    padding: var(--spacing-xl) 0;
+    text-align: center;
+}
+
+/* Ensure main content is below the header but above the lightbox */
+main {
+    position: relative;
+    z-index: 1; 
+}
+
+
+.section-title {
+    margin-bottom: var(--spacing-lg);
+    font-size: 2.2rem;
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: var(--accent-color);
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+/* Hero Section */
+.hero-section {
+    background-color: var(--background-light);
+    padding: var(--spacing-xl) 0 calc(var(--spacing-xl) * 1.5); /* More bottom padding */
+    min-height: 80vh; /* Ensure it takes up decent screen space */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+.hero-intro {
+    font-size: 1.3rem;
+    color: var(--text-medium);
+    margin-bottom: var(--spacing-xs);
+    font-weight: 300;
+}
+
+.hero-headline {
+    font-size: 3.5rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: var(--spacing-md);
+    color: var(--text-dark);
+}
+
+.typewriter-text {
+    color: var(--accent-color); /* Make it stand out */
+}
+
+.cursor {
+    display: inline-block;
+    background-color: var(--text-dark); /* Color of the blinking cursor */
+    width: 3px; /* Width of the cursor */
+    height: 1.2em; /* Height relative to font size */
+    animation: blink 0.7s infinite;
+    vertical-align: middle; /* Align with text */
+    margin-left: 3px;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Work Section */
+.work-section {
+    background-color: var(--background-medium);
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.project-card {
+    background-color: var(--background-light);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px var(--shadow-light);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px var(--shadow-medium);
+}
+
+.project-card img {
+    width: 100%;
+    height: 220px; /* Consistent height for thumbnails */
+    object-fit: cover;
+    display: block;
+}
+
+.project-content {
+    padding: var(--spacing-md);
+    text-align: left;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.project-content h3 {
+    margin-top: 0;
+    margin-bottom: var(--spacing-xs);
+    font-size: 1.35rem;
+}
+
+.project-content p {
+    font-size: 0.95rem;
+    color: var(--text-medium);
+    margin-bottom: var(--spacing-sm);
+    flex-grow: 1;
+}
+
+.project-link {
+    display: inline-block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--accent-color);
+    position: relative;
+    padding-right: 15px; /* Space for arrow */
+}
+
+.project-link::after {
+    content: '→'; /* Right arrow character */
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: transform 0.3s ease;
+}
+
+.project-link:hover::after {
+    transform: translateY(-50%) translateX(5px);
+}
+
+/* About Section */
+.about-section {
+    background-color: var(--background-light);
+}
+
+.about-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-md);
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left; /* Align text within bio-text */
+}
+
+.profile-img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid var(--accent-color);
+    box-shadow: 0 4px 12px var(--shadow-light);
+}
+
+.bio-text p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--text-dark);
+}
+
+/* Contact Section */
+.contact-section {
+    background-color: var(--background-medium);
+}
+
+.contact-intro {
+    font-size: 1.1rem;
+    color: var(--text-medium);
+    margin-bottom: var(--spacing-lg);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto var(--spacing-lg) auto;
+    background-color: var(--background-light);
+    padding: var(--spacing-md);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px var(--shadow-light);
+    text-align: left;
+}
+
+.form-group {
+    margin-bottom: var(--spacing-sm);
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: var(--spacing-xs);
+    font-weight: 500;
+    color: var(--text-dark);
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-family: var(--font-primary);
+    font-size: 1rem;
+    color: var(--text-dark);
+    background-color: #fff;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
+    outline: none;
+}
+
+.contact-form button {
+    width: 100%; /* Make button full width in form */
+    margin-top: var(--spacing-sm);
+}
+
+.social-links {
+    margin-top: var(--spacing-md);
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+}
+
+.social-links a {
+    color: var(--text-medium);
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+
+.social-links a:hover {
+    color: var(--accent-color);
+}
+
+/* Footer */
+.footer {
+    background-color: var(--text-dark); /* Dark footer */
+    color: var(--text-light);
+    padding: var(--spacing-md) 0;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* Back to Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: var(--spacing-md);
+    right: var(--spacing-md);
+    background-color: var(--accent-color);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 12px var(--shadow-medium);
+    opacity: 0; /* Initially hidden */
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.2s ease;
+    z-index: 999;
+}
+
+.back-to-top:hover {
+    background-color: var(--accent-color-hover);
+    transform: translateY(-2px); /* Subtle lift on hover */
+}
+
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Scroll-triggered Animations */
+/* Initial hidden state */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    color: inherit; /* Ensure default text color is respected even before animation */
+}
+
+/* State when in view */
+.fade-in-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* For individual items within a grid (optional, but nice) */
+.fade-in-item {
+    opacity: 0;
+    transform: translateY(15px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+/* Delay for staggered effect */
+.projects-grid .fade-in-item:nth-child(1) { transition-delay: 0.1s; }
+.projects-grid .fade-in-item:nth-child(2) { transition-delay: 0.2s; }
+.projects-grid .fade-in-item:nth-child(3) { transition-delay: 0.3s; }
+/* Add more as needed for your grid size */
+
+
+.fade-in-item.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* Dark mode specific styles */
+body.dark-mode {
+    background-color: var(--dark-background-light);
+    color: var(--dark-text-dark); /* Primary text color for dark mode */
+}
+
+body.dark-mode .header {
+    background-color: var(--dark-background-light);
+    border-bottom-color: var(--dark-border-color);
+    box-shadow: 0 2px 4px var(--dark-shadow-light);
+}
+
+body.dark-mode .site-title a {
+    color: var(--dark-text-dark);
+}
+
+body.dark-mode .main-nav a {
+    color: var(--dark-text-medium); /* Uses updated --dark-text-medium */
+}
+
+body.dark-mode .section-title {
+    color: var(--dark-text-dark);
+}
+
+body.dark-mode .hero-intro {
+    color: var(--dark-text-dark); /* Ensuring the intro text is bright in dark mode */
+}
+
+body.dark-mode .hero-headline {
+    color: var(--dark-text-dark); /* Ensuring the headline is bright in dark mode */
+}
+
+body.dark-mode .typewriter-text {
+    color: var(--accent-color); /* Keep accent color in dark mode */
+}
+
+body.dark-mode .cursor {
+    background-color: var(--dark-text-dark);
+}
+
+body.dark-mode .work-section,
+body.dark-mode .contact-section {
+    background-color: var(--dark-background-medium);
+}
+
+body.dark-mode .project-card,
+body.dark-mode .contact-form {
+    background-color: var(--dark-background-light);
+    box-shadow: 0 4px 12px var(--dark-shadow-light);
+}
+
+body.dark-mode .project-card:hover {
+    box-shadow: 0 8px 20px var(--dark-shadow-medium);
+}
+
+body.dark-mode .project-content h3 {
+    color: var(--dark-text-dark);
+}
+
+body.dark-mode .project-content p {
+    color: var(--dark-text-medium); /* Uses updated --dark-text-medium */
+}
+
+body.dark-mode .about-section {
+    background-color: var(--dark-background-light);
+}
+
+body.dark-mode .bio-text p {
+    color: var(--dark-text-dark);
+}
+
+body.dark-mode .contact-intro {
+    color: var(--dark-text-medium); /* Uses updated --dark-text-medium */
+}
+
+body.dark-mode .form-group label {
+    color: var(--dark-text-dark);
+}
+
+body.dark-mode .form-group input,
+body.dark-mode .form-group textarea {
+    background-color: var(--dark-background-medium);
+    border-color: var(--dark-border-color); /* Uses updated --dark-border-color */
+    color: var(--dark-text-dark);
+}
+
+body.dark-mode .social-links a {
+    color: var(--dark-text-medium); /* Uses updated --dark-text-medium */
+}
+
+body.dark-mode .footer {
+    background-color: var(--dark-background-medium);
+    color: var(--dark-text-light); /* Uses updated --dark-text-light */
+}
+
+body.dark-mode .theme-toggle {
+    color: #ffd700; /* Moon icon color for dark mode */
+}
+
+/* --- Project Case Study Page Specific Styles (for project1.html, etc.) --- */
+
+.project-case-study {
+    padding-top: var(--spacing-xl); /* Add top padding to avoid sticking to header */
+    padding-bottom: var(--spacing-xl); /* Add bottom padding */
+    text-align: left; /* Content within case study should typically be left-aligned */
+}
+
+.project-case-study .container {
+    max-width: 800px; /* Define a max-width for your case study content for readability */
+    margin: 0 auto; /* Center the content */
+    padding: 0 var(--spacing-sm); /* Responsive padding */
+}
+
+.project-title {
+    font-size: 2.8rem; /* Adjust title size for case study */
+    text-align: center;
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-dark); /* Ensure it's using the correct variable */
+}
+
+.project-overview {
+    font-size: 1.1rem;
+    color: var(--text-medium);
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+/* Styles for the main hero image of the case study */
+.project-hero-image {
+    width: 100%; /* Make it span the full content width */
+    height: 450px; /* FIXED HEIGHT: Adjust this value to your preferred height */
+    object-fit: cover; /* This is crucial: it crops the image to fill the dimensions without stretching */
+    display: block; /* Removes extra space below the image */
+    margin: var(--spacing-lg) auto; /* Center with good vertical spacing */
+    border-radius: 8px; /* Consistent border-radius */
+    box-shadow: 0 8px 20px var(--shadow-medium); /* Subtle shadow for depth */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add transition for hover */
+    cursor: zoom-in; /* Indicate clickable */
+}
+
+/* Styles for all other images within the project case study content */
+.project-section-content img {
+    width: 100%; /* Ensure it spans the full content width */
+    height: 350px; /* FIXED HEIGHT: Make this consistent for all internal images */
+    object-fit: cover; /* Crucial for consistent sizing - crops to fill */
+    display: block;
+    margin: var(--spacing-md) auto; /* Center with vertical spacing */
+    border-radius: 8px; /* Consistent border-radius */
+    box-shadow: 0 4px 12px var(--shadow-light); /* Lighter shadow for internal images */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add transition for hover */
+    cursor: zoom-in; /* Indicate clickable */
+}
+
+/* Optional: Style for image captions */
+.image-caption {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    text-align: center;
+    margin-top: -15px; /* Pull it closer to the image */
+    margin-bottom: var(--spacing-md);
+}
+
+/* Styling for sub-headings within the case study content */
+.project-section-content h2 {
+    font-size: 1.8rem;
+    margin-top: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
+    text-align: left; /* Sub-headings within content left-aligned */
+    position: relative;
+    display: inline-block; /* For the ::after pseudo-element */
+}
+
+.project-section-content h2::after {
+    content: '';
+    display: block;
+    width: 50px; /* Shorter line for sub-headings */
+    height: 3px;
+    background-color: var(--accent-color);
+    margin: 5px 0 0; /* Align to left */
+    border-radius: 1.5px;
+}
+
+/* General text and list styling within the case study */
+.project-section-content p,
+.project-section-content ul {
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-dark); /* Ensure text color consistency */
+}
+
+.project-section-content ul {
+    list-style: disc;
+    margin-left: 20px;
+    padding-left: 10px;
+}
+
+.project-section-content li {
+    margin-bottom: 5px;
+}
+
+/* Back to Work Link Styling */
+.back-to-work-link {
+    display: inline-block;
+    margin-bottom: var(--spacing-md);
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+/* Project Navigation Links (Back to Work / Next Project) */
+.project-nav-links {
+    margin-top: var(--spacing-xl);
+    display: flex;
+    justify-content: space-between;
+    gap: var(--spacing-md);
+}
+
+.project-nav-links .btn {
+    flex-grow: 1; /* Makes buttons expand to fill space */
+}
+
+/* Hover effects for project images */
+.project-hero-image:hover,
+.project-section-content img:hover {
+    transform: translateY(-5px) scale(1.01); /* Subtle lift and slight scale */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); /* More pronounced shadow on hover */
+}
+
+/* Responsive adjustments for project page images */
+@media (max-width: 767px) {
+    .project-hero-image {
+        height: 280px; /* Smaller height for mobile hero */
+    }
+    .project-section-content img {
+        height: 200px; /* Smaller height for mobile internal images */
+    }
+    .project-title {
+        font-size: 2.2rem;
+    }
+    .project-section-content h2 {
+        font-size: 1.5rem;
+    }
+    .project-nav-links {
+        flex-direction: column; /* Stack buttons vertically on small screens */
+    }
+}
+
+/* Dark Mode Adjustments for Project Page */
+body.dark-mode .project-title,
+body.dark-mode .project-section-content h2,
+body.dark-mode .project-section-content p,
+body.dark-mode .project-section-content li {
+    color: var(--dark-text-dark);
+}
+
+body.dark-mode .project-overview,
+body.dark-mode .project-section-content .image-caption {
+    color: var(--dark-text-medium);
+}
+/* --- Lightbox Styles (UPDATE THESE IN YOUR style.css FILE) --- */
+.lightbox {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 9999; /* Make it super high to be on top of EVERYTHING */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: hidden; /* NEW: Prevent scrolling inside lightbox itself (for the overlay) */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+    transition: opacity 0.3s ease;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    opacity: 0;
+    /* REMOVE THIS LINE: padding-top: 60px; */ /* This was pushing content down */
+}
+
+.lightbox.active {
+    display: flex; /* Use flex to center content */
+    align-items: center; /* Vertically center content */
+    justify-content: center; /* Horizontally center content */
+    opacity: 1;
+}
+
+/* Ensure the image content also has proper max dimensions */
+.lightbox-content {
+    margin: auto; /* Ensure it's truly centered within flex container */
+    display: block;
+    max-width: 90%;
+    max-height: 90vh; /* IMPORTANT: Limit height to viewport height */
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    transform: scale(0.8); /* Initial scale for animation */
+    transition: transform 0.3s ease;
+}
+
+/* --- ADD THIS NEW RULE TO YOUR style.css --- */
+/* This will prevent the background page from scrolling when lightbox is open */
+body.lightbox-open {
+    overflow: hidden;
+}
